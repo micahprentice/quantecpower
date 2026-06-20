@@ -2384,6 +2384,7 @@ body::before {
               <select class="fs" name="license-class" required>
                 <option>Master Electrician</option>
                 <option>Journeyman Electrician</option>
+                <option>Apprentice Electrician</option>
               </select>
             </div>
 
@@ -2394,6 +2395,11 @@ body::before {
                 <option>Regional — Within 300 Miles</option>
                 <option>Local Only</option>
               </select>
+            </div>
+
+            <div class="fg" style="margin-bottom:24px;">
+              <label class="fl">Referred by someone in the Quantec network? <span style="opacity:0.5;font-weight:400;">(optional)</span></label>
+              <input class="fi" type="text" name="referred-by" placeholder="Their name"/>
             </div>
 
             <button type="submit" style="width:100%;font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:15px;background:var(--volt);color:var(--void);border:none;cursor:pointer;font-weight:700;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all 0.2s;" onmouseover="this.style.background='#F5FF33'" onmouseout="this.style.background='var(--volt)'">Submit Application &#8594;</button>
