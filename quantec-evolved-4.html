@@ -2504,11 +2504,23 @@ function handleForm(e, successId, formName) {
 function handleVendorForm(e) {
   e.preventDefault();
   const form = e.target;
-  const data = new FormData(form);
-  fetch('https://formspree.io/f/xdarnnpo', {
+  const fd = new FormData(form);
+  const payload = {
+    'first-name':        fd.get('first-name') || '',
+    'last-name':         fd.get('last-name') || '',
+    'email':             fd.get('email') || '',
+    'phone':             fd.get('phone') || '',
+    'license-state':     fd.get('license-state') || '',
+    'license-class':     fd.get('license-class') || '',
+    'geo-availability':  fd.get('geo-availability') || '',
+    'referred-by':       fd.get('referred-by') || '',
+    'project-experience':fd.get('project-experience') || '',
+    'submitted-at':      new Date().toISOString()
+  };
+  fetch('https://hook.us2.make.com/4hi1cbl5v4dauhl4bqxvchadaj7wvi43', {
     method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
+    body: JSON.stringify(payload),
+    headers: { 'Content-Type': 'application/json' }
   }).then(response => {
     if (response.ok) {
       const el = document.getElementById('vendor-success');
