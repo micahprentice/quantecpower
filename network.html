@@ -112,6 +112,66 @@ body{font-family:var(--body);background:var(--void);color:var(--dim);overflow:hi
 /* TOAST */
 #toast{position:fixed;bottom:80px;right:20px;z-index:200;background:var(--card);border:1px solid var(--electric);color:var(--electric);padding:10px 16px;border-radius:8px;font-size:13px;font-family:var(--mono);transform:translateX(200px);opacity:0;transition:all 0.3s}
 #toast.show{transform:translateX(0);opacity:1}
+
+/* FILTER TOGGLE (mobile only) */
+#filterToggle{display:none;position:fixed;top:68px;left:12px;z-index:11;background:rgba(13,13,20,0.92);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:8px;color:var(--dim);padding:8px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;cursor:pointer;transition:all 0.15s}
+#filterToggle.active{border-color:var(--electric);color:var(--electric)}
+
+/* MOBILE */
+@media(max-width:768px){
+  /* Top bar */
+  #topbar{padding:0 14px}
+  .tb-title{display:none}
+  .tb-right{display:none}
+  .tb-stats{gap:14px}
+  .tb-stat .n{font-size:16px}
+  .tb-stat .l{font-size:8px}
+
+  /* Filter toggle visible */
+  #filterToggle{display:block}
+
+  /* Filters — hidden by default, slide down when open */
+  #filters{
+    display:none;top:110px;left:0;right:0;
+    flex-direction:row;flex-wrap:wrap;
+    padding:0 12px;gap:8px;max-height:calc(100vh - 130px);overflow-y:auto
+  }
+  #filters.open{display:flex}
+  .filter-group{flex:1;min-width:140px}
+
+  /* Search — shifted right of toggle button */
+  #searchBox{left:auto;right:12px;transform:none;width:calc(100% - 130px);top:68px}
+
+  /* Legend — hidden on mobile */
+  #legend{display:none}
+
+  /* Profile card — bottom sheet */
+  #profile{
+    top:auto;bottom:0;left:0;right:0;width:100%;
+    border-radius:16px 16px 0 0;
+    transform:translateY(110%);
+    max-height:78vh;overflow-y:auto
+  }
+  #profile.open{transform:translateY(0)}
+
+  /* Pull handle on profile */
+  .profile-header::before{
+    content:'';display:block;width:36px;height:4px;
+    background:var(--border2);border-radius:99px;
+    margin:0 auto 14px;
+  }
+
+  /* Add button */
+  #addBtn{bottom:16px;right:16px;padding:10px 16px;font-size:12px}
+
+  /* Modal — full width */
+  .modal-box{width:calc(100vw - 24px);padding:24px 18px;max-height:88vh;border-radius:14px}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:1}
+
+  /* Toast */
+  #toast{right:12px;bottom:72px;font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -132,10 +192,13 @@ body{font-family:var(--body);background:var(--void);color:var(--dim);overflow:hi
   </div>
 </div>
 
+<!-- FILTER TOGGLE (mobile) -->
+<button id="filterToggle" onclick="toggleMobileFilters()">⚡ FILTER</button>
+
 <!-- SEARCH -->
 <div id="searchBox">
   <span class="s-icon">⌕</span>
-  <input type="text" placeholder="Search by name or state..." oninput="filterVendors(this.value)"/>
+  <input type="search" id="search-input" placeholder="Search by name or state..." oninput="filterVendors(this.value)" autocomplete="off" aria-label="Search vendors"/>
 </div>
 
 <!-- FILTERS -->
@@ -241,24 +304,24 @@ body{font-family:var(--body);background:var(--void);color:var(--dim);overflow:hi
     <div class="modal-sub">All info is stored locally in this file. Paste the contractor's application details below.</div>
     <div class="form-grid">
       <div class="form-group">
-        <label class="form-label">First Name</label>
-        <input class="form-input" id="f-first" placeholder="John"/>
+        <label class="form-label" for="f-first">First Name</label>
+        <input class="form-input" id="f-first" placeholder="John" autocomplete="given-name"/>
       </div>
       <div class="form-group">
-        <label class="form-label">Last Name</label>
-        <input class="form-input" id="f-last" placeholder="Smith"/>
+        <label class="form-label" for="f-last">Last Name</label>
+        <input class="form-input" id="f-last" placeholder="Smith" autocomplete="family-name"/>
       </div>
       <div class="form-group">
-        <label class="form-label">Email</label>
-        <input class="form-input" id="f-email" type="email" placeholder="john@email.com"/>
+        <label class="form-label" for="f-email">Email</label>
+        <input class="form-input" id="f-email" type="email" placeholder="john@email.com" autocomplete="email"/>
       </div>
       <div class="form-group">
-        <label class="form-label">Phone</label>
-        <input class="form-input" id="f-phone" placeholder="(555) 000-0000"/>
+        <label class="form-label" for="f-phone">Phone</label>
+        <input class="form-input" id="f-phone" placeholder="(555) 000-0000" autocomplete="tel"/>
       </div>
       <div class="form-group">
-        <label class="form-label">License State</label>
-        <select class="form-select" id="f-state">
+        <label class="form-label" for="f-state">License State</label>
+        <select class="form-select" id="f-state" autocomplete="address-level1">
           <option value="">Select State</option>
           <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
           <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
@@ -276,8 +339,8 @@ body{font-family:var(--body);background:var(--void);color:var(--dim);overflow:hi
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">License Class</label>
-        <select class="form-select" id="f-class">
+        <label class="form-label" for="f-class">License Class</label>
+        <select class="form-select" id="f-class" autocomplete="off">
           <option value="T5">T5 — Master / PE</option>
           <option value="T3">T3 — Journeyman</option>
           <option value="T1">T1 — Entry / Apprentice</option>
@@ -285,23 +348,23 @@ body{font-family:var(--body);background:var(--void);color:var(--dim);overflow:hi
         </select>
       </div>
       <div class="form-group full">
-        <label class="form-label">Geographic Coverage</label>
-        <input class="form-input" id="f-coverage" placeholder="e.g. Southwest, Texas + New Mexico"/>
+        <label class="form-label" for="f-coverage">Geographic Coverage</label>
+        <input class="form-input" id="f-coverage" placeholder="e.g. Southwest, Texas + New Mexico" autocomplete="off"/>
       </div>
       <div class="form-group full">
-        <label class="form-label">Specialties (comma separated)</label>
-        <input class="form-input" id="f-specialties" placeholder="e.g. Data Center, High Voltage, Solar"/>
+        <label class="form-label" for="f-specialties">Specialties (comma separated)</label>
+        <input class="form-input" id="f-specialties" placeholder="e.g. Data Center, High Voltage, Solar" autocomplete="off"/>
       </div>
       <div class="form-group full">
-        <label class="form-label">Status</label>
-        <select class="form-select" id="f-status">
+        <label class="form-label" for="f-status">Status</label>
+        <select class="form-select" id="f-status" autocomplete="off">
           <option>Active</option>
           <option>Pending</option>
         </select>
       </div>
       <div class="form-group full">
-        <label class="form-label">Notes</label>
-        <input class="form-input" id="f-notes" placeholder="Any context on this vendor..."/>
+        <label class="form-label" for="f-notes">Notes</label>
+        <input class="form-input" id="f-notes" placeholder="Any context on this vendor..." autocomplete="off"/>
       </div>
     </div>
     <div class="modal-actions">
@@ -370,40 +433,53 @@ function classFromString(str) {
 }
 
 function parseSheetCSV(text) {
-  const lines = text.trim().split('\n');
-  const rows = lines.slice(1);
-  const parsed = [];
-  rows.forEach((line, i) => {
-    const cols = [];
-    let cur = '', inQuote = false;
-    for (const ch of line) {
-      if (ch === '"') { inQuote = !inQuote; }
-      else if (ch === ',' && !inQuote) { cols.push(cur.trim()); cur = ''; }
-      else { cur += ch; }
+  // Full CSV parser — handles quoted fields with embedded newlines
+  const records = [];
+  let i = 0, n = text.length;
+  while (i < n) {
+    const record = [];
+    while (i < n) {
+      let field = '';
+      if (text[i] === '"') {
+        i++;
+        while (i < n) {
+          if (text[i] === '"' && text[i+1] === '"') { field += '"'; i += 2; }
+          else if (text[i] === '"') { i++; break; }
+          else { field += text[i++]; }
+        }
+      } else {
+        while (i < n && text[i] !== ',' && text[i] !== '\n' && text[i] !== '\r') {
+          field += text[i++];
+        }
+      }
+      record.push(field.trim());
+      if (i < n && text[i] === ',') { i++; }
+      else { if (i < n && text[i] === '\r') i++; if (i < n && text[i] === '\n') i++; break; }
     }
-    cols.push(cur.trim());
-    // Columns: 0=Raw Data, 1=Date, 2=Name, 3=State, 4=License Class, 5=Phone, 6=Notes, 7=Approved
-    if ((cols[7]||'').trim().toLowerCase() !== 'yes') return;
-    const fullName = (cols[2]||'').trim();
-    const parts = fullName.split(' ');
-    const first = parts[0] || 'Unknown';
-    const last = parts.slice(1).join(' ') || '';
-    const stateRaw = (cols[3]||'').trim();
-    const stateCode = STATE_NAME_TO_CODE[stateRaw] || stateRaw.toUpperCase().slice(0,2);
-    parsed.push({
-      id: 1000 + i,
-      first, last,
-      email: '',
-      phone: (cols[5]||'').trim(),
-      state: stateCode,
-      licenseClass: classFromString(cols[4]),
-      coverage: stateRaw,
-      specialties: [],
-      status: 'Active',
-      notes: (cols[6]||'').trim() || ''
+    if (record.length > 1 || (record.length === 1 && record[0])) records.push(record);
+  }
+  // Columns: 0=Raw Data, 1=Date, 2=Name, 3=State, 4=License Class, 5=Phone, 6=Notes, 7=Approved
+  return records.slice(1)
+    .filter(cols => (cols[7]||'').trim().toLowerCase() === 'yes')
+    .map((cols, i) => {
+      const fullName = (cols[2]||'').trim();
+      const parts = fullName.split(' ');
+      const stateRaw = (cols[3]||'').trim();
+      const stateCode = STATE_NAME_TO_CODE[stateRaw] || stateRaw.toUpperCase().slice(0,2);
+      return {
+        id: 1000 + i,
+        first: parts[0] || 'Unknown',
+        last: parts.slice(1).join(' ') || '',
+        email: '',
+        phone: (cols[5]||'').trim(),
+        state: stateCode,
+        licenseClass: classFromString(cols[4]),
+        coverage: stateRaw,
+        specialties: [],
+        status: 'Active',
+        notes: (cols[6]||'').trim() || ''
+      };
     });
-  });
-  return parsed;
 }
 
 async function loadSheetVendors() {
@@ -672,6 +748,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // Close modal on backdrop click
 document.getElementById('addModal').addEventListener('click', function(e) {
   if (e.target === this) closeAddModal();
+});
+
+// Mobile filter toggle
+function toggleMobileFilters() {
+  const f = document.getElementById('filters');
+  const btn = document.getElementById('filterToggle');
+  f.classList.toggle('open');
+  btn.classList.toggle('active');
+}
+
+// Close filters when a filter is selected on mobile
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      document.getElementById('filters').classList.remove('open');
+      document.getElementById('filterToggle').classList.remove('active');
+    }
+  });
 });
 </script>
 </body>
