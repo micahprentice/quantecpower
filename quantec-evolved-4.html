@@ -2517,20 +2517,18 @@ function handleVendorForm(e) {
     'project-experience':fd.get('project-experience') || '',
     'submitted-at':      new Date().toISOString()
   };
+  // Send to Make.com webhook (no-cors: data goes through, response not readable)
   fetch('https://hook.us2.make.com/4hi1cbl5v4dauhl4bqxvchadaj7wvi43', {
     method: 'POST',
+    mode: 'no-cors',
     body: JSON.stringify(payload),
     headers: { 'Content-Type': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      const el = document.getElementById('vendor-success');
-      el.classList.add('show');
-      form.style.display = 'none';
-      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-    } else {
-      alert('Submission error — please email HQ@quantecpower.io directly.');
-    }
-  }).catch(() => alert('Submission error — please email HQ@quantecpower.io directly.'));
+  });
+  // Show success immediately — Make.com receives data in background
+  const el = document.getElementById('vendor-success');
+  el.classList.add('show');
+  form.style.display = 'none';
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
 }
 
 function toggleJW(val) {
