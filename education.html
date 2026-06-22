@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
+<title>Quantec Power Academy — Electrical Trade Training for the AI Era</title>
+<meta name="description" content="Quantec Power Academy trains the next generation of data center electricians. Hands-on curriculum in medium voltage, critical systems, and AI infrastructure electrical — built by people who've done the work.">
+<meta name="keywords" content="electrical trade school, data center electrician training, electrical apprenticeship program, medium voltage training, OSHA electrician certification, hyperscale electrical training, critical infrastructure electrician, journeyman electrician school, electrical trade education, AI data center workforce training">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://quantecpower.com/education.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Quantec Power Academy",
+  "description": "Electrical trade training program focused on data center, hyperscale, and critical infrastructure electrical systems.",
+  "url": "https://quantecpower.com/education.html",
+  "parentOrganization": {"@type": "Organization", "name": "Quantec Power LLC"},
+  "teaches": ["Data Center Electrical Systems", "Medium Voltage", "High Voltage Safety", "OSHA 30 Compliance", "BMS Controls", "UPS and Generator Systems", "Switchgear Installation"]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#050508;--surface:#0D0D14;--card:#13131C;--card2:#161622;
+  --border:#1E1E2A;--border2:#2A2A38;
+  --text:#F0EEF8;--dim:#8A88A0;--muted:#4A4860;
+  --electric:#2B6AFF;--electric-glow:rgba(43,106,255,0.15);
+  --volt:#C8FF00;--volt-glow:rgba(200,255,0,0.10);
+  --orange:#FF5C20;
+  --mono:'IBM Plex Mono',monospace;
+  --display:'Syne',sans-serif;
+  --body:'Inter',sans-serif;
+}
+body{font-family:var(--body);background:var(--void);color:var(--dim);min-height:100vh}
+a{color:var(--electric);text-decoration:none}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:56px;
+  background:rgba(5,5,8,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:var(--display);font-size:14px;font-weight:800;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo .dot{width:7px;height:7px;border-radius:50%;background:var(--electric)}
+.nav-right{display:flex;gap:20px;align-items:center}
+.nav-right a{font-size:13px;color:var(--dim);text-decoration:none;transition:color 0.15s}
+.nav-right a:hover,.nav-right a.active{color:var(--text)}
+.btn-apply{background:var(--electric);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.15s}
+.btn-apply:hover{opacity:0.85}
+
+/* HERO */
+.hero{
+  padding:100px 40px 80px;
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--electric);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--electric)}
+.hero-headline{font-family:var(--display);font-size:52px;font-weight:800;color:var(--text);line-height:1.05;margin-bottom:24px}
+.hero-headline span{color:var(--electric)}
+.hero-body{font-size:16px;line-height:1.7;color:var(--dim);margin-bottom:36px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--electric);color:#fff;padding:13px 28px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block;transition:opacity 0.15s}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{border:1px solid var(--border2);color:var(--dim);padding:13px 28px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;display:inline-block;transition:all 0.15s}
+.btn-ghost:hover{border-color:var(--electric);color:var(--electric)}
+
+/* COMING SOON CARD */
+.hero-card{
+  background:var(--card);border:1px solid var(--border2);border-radius:16px;
+  padding:36px;position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--electric),var(--volt));
+}
+.cs-label{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--electric);margin-bottom:20px}
+.cs-stat{margin-bottom:20px}
+.cs-stat .n{font-family:var(--display);font-size:36px;font-weight:800;color:var(--text)}
+.cs-stat .l{font-size:13px;color:var(--dim);margin-top:2px}
+.cs-divider{height:1px;background:var(--border);margin:20px 0}
+.cs-note{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6}
+
+/* SECTIONS */
+.section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.section-tag{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.section-title{font-family:var(--display);font-size:34px;font-weight:800;color:var(--text);line-height:1.1;margin-bottom:16px}
+.section-body{font-size:15px;line-height:1.7;color:var(--dim);max-width:600px;margin-bottom:48px}
+.divider{height:1px;background:var(--border);max-width:1100px;margin:0 auto}
+
+/* CURRICULUM GRID */
+.curriculum{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.track-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;
+  transition:border-color 0.2s;
+}
+.track-card:hover{border-color:var(--border2)}
+.track-icon{font-size:24px;margin-bottom:14px}
+.track-name{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.track-desc{font-size:13px;line-height:1.6;color:var(--dim);margin-bottom:14px}
+.track-tags{display:flex;flex-wrap:wrap;gap:5px}
+.track-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:4px;background:rgba(43,106,255,0.08);color:var(--electric);border:1px solid rgba(43,106,255,0.15)}
+
+/* WHY SECTION */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.why-num{font-family:var(--mono);font-size:11px;color:var(--electric);margin-bottom:10px}
+.why-title{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.why-body{font-size:13px;line-height:1.6;color:var(--dim)}
+
+/* WAITLIST */
+.waitlist-section{
+  padding:80px 40px;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.waitlist-inner{max-width:600px;margin:0 auto;text-align:center}
+.waitlist-title{font-family:var(--display);font-size:32px;font-weight:800;color:var(--text);margin-bottom:16px}
+.waitlist-body{font-size:15px;line-height:1.7;color:var(--dim);margin-bottom:36px}
+.waitlist-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.wl-input{
+  background:var(--card);border:1px solid var(--border2);color:var(--text);
+  padding:13px 18px;border-radius:10px;font-size:14px;font-family:var(--body);
+  outline:none;width:280px;transition:border-color 0.15s;
+}
+.wl-input:focus{border-color:var(--electric)}
+.wl-input::placeholder{color:var(--muted)}
+.wl-btn{
+  background:var(--electric);color:#fff;padding:13px 24px;border-radius:10px;
+  font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:var(--body);
+  transition:opacity 0.15s;white-space:nowrap;
+}
+.wl-btn:hover{opacity:0.85}
+.wl-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:14px}
+.wl-success{display:none;font-family:var(--mono);font-size:12px;color:var(--electric);margin-top:14px}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);padding:28px 40px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.footer-copy{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.footer-nav{display:flex;gap:20px}
+.footer-nav a{font-size:12px;color:var(--dim);text-decoration:none;transition:color 0.15s}
+.footer-nav a:hover{color:var(--electric)}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-right a:not(.btn-apply){display:none}
+  .hero{grid-template-columns:1fr;padding:60px 20px 48px;gap:40px}
+  .hero-headline{font-size:36px}
+  .curriculum{grid-template-columns:1fr;padding:0 20px}
+  .section{padding:60px 20px}
+  .why-grid{grid-template-columns:1fr}
+  .waitlist-section{padding:60px 20px}
+  .wl-input{width:100%}
+  .waitlist-form{flex-direction:column}
+  footer{padding:24px 20px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/"><span class="dot"></span>QUANTEC POWER</a>
+  <div class="nav-right">
+    <a href="/">Platform</a>
+    <a href="/education.html" class="active">Academy</a>
+    <a href="/legal.html">Legal</a>
+    <a href="/#apply" class="btn-apply">Join Network</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Quantec Power Academy</div>
+    <div class="hero-headline">Train for the<br/><span>AI Infrastructure</span><br/>Era</div>
+    <div class="hero-body">The electrical trades are being redefined by AI data centers, hyperscale facilities, and critical power infrastructure. Quantec Power Academy trains electricians — from apprentice to master — in the skills that actually get deployed.</div>
+    <div class="hero-actions">
+      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+      <a href="#curriculum" class="btn-ghost">See Curriculum</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="cs-label">Program Status</div>
+    <div class="cs-stat">
+      <div class="n">2026</div>
+      <div class="l">Estimated Launch — Enrolling Interest Now</div>
+    </div>
+    <div class="cs-divider"></div>
+    <div class="cs-stat">
+      <div class="n">100%</div>
+      <div class="l">Industry-Built Curriculum — No Fluff</div>
+    </div>
+    <div class="cs-divider"></div>
+    <div class="cs-stat">
+      <div class="n">Direct</div>
+      <div class="l">Pipeline Into Quantec Power Field Network</div>
+    </div>
+    <div class="cs-divider"></div>
+    <div class="cs-note">Graduates enter the Quantec Power vendor network with priority placement on active data center and hyperscale projects.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CURRICULUM -->
+<div class="section" id="curriculum">
+  <div class="section-tag">What You'll Learn</div>
+  <div class="section-title">Built for the Work That's Actually Being Done</div>
+  <div class="section-body">Every module is designed around real project types — not theory. The curriculum reflects what AI data center developers, hyperscale operators, and critical facility owners actually need from their electrical crews.</div>
+
+  <div class="curriculum">
+    <div class="track-card">
+      <div class="track-icon">⚡</div>
+      <div class="track-name">Data Center Electrical</div>
+      <div class="track-desc">Core systems for hyperscale and colocation facilities. Power distribution, redundancy design, and commissioning fundamentals.</div>
+      <div class="track-tags">
+        <span class="track-tag">UPS Systems</span>
+        <span class="track-tag">PDUs</span>
+        <span class="track-tag">Switchgear</span>
+        <span class="track-tag">Redundancy</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-icon">🔌</div>
+      <div class="track-name">Medium &amp; High Voltage</div>
+      <div class="track-desc">Safe work practices, terminations, and testing procedures for medium voltage distribution systems commonly found in industrial and mission-critical environments.</div>
+      <div class="track-tags">
+        <span class="track-tag">5kV–35kV</span>
+        <span class="track-tag">Cable Terminations</span>
+        <span class="track-tag">VLF Testing</span>
+        <span class="track-tag">Substations</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-icon">🛡️</div>
+      <div class="track-name">Safety &amp; Compliance</div>
+      <div class="track-desc">OSHA 30, Arc Flash, NFPA 70E, and site-specific safety protocols required for work on live data center and industrial electrical systems.</div>
+      <div class="track-tags">
+        <span class="track-tag">OSHA 30</span>
+        <span class="track-tag">Arc Flash</span>
+        <span class="track-tag">NFPA 70E</span>
+        <span class="track-tag">LOTO</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-icon">🖥️</div>
+      <div class="track-name">BMS &amp; Controls</div>
+      <div class="track-desc">Building Management Systems, SCADA integration, and controls wiring specific to critical facility environments.</div>
+      <div class="track-tags">
+        <span class="track-tag">BMS</span>
+        <span class="track-tag">SCADA</span>
+        <span class="track-tag">DDC Controls</span>
+        <span class="track-tag">Instrumentation</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-icon">🏗️</div>
+      <div class="track-name">Project Field Operations</div>
+      <div class="track-desc">How to operate as a professional independent electrical contractor — from reading specs to managing work orders, COIs, and client communication on large sites.</div>
+      <div class="track-tags">
+        <span class="track-tag">Work Orders</span>
+        <span class="track-tag">Blueprint Reading</span>
+        <span class="track-tag">Crew Coordination</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-icon">🌐</div>
+      <div class="track-name">AI Infrastructure Context</div>
+      <div class="track-desc">Understanding the AI data center buildout boom — who the players are, how projects are scoped, and how electricians position themselves for maximum opportunity.</div>
+      <div class="track-tags">
+        <span class="track-tag">Hyperscale</span>
+        <span class="track-tag">Colocation</span>
+        <span class="track-tag">AI Buildout</span>
+        <span class="track-tag">Market Intelligence</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHY -->
+<div class="section">
+  <div class="section-tag">Why Quantec Power Academy</div>
+  <div class="section-title">Not Another Trade School</div>
+  <div class="section-body">Most electrical training programs teach to the test. We teach to the job site — specifically the job sites paying top dollar right now.</div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">Built by People Who've Done the Work</div>
+      <div class="why-body">The curriculum is built by experienced electricians and field operators who have worked on data centers, nuclear facilities, airports, and hyperscale infrastructure. No academics. No guesswork.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">Direct Path Into the Network</div>
+      <div class="why-body">Academy graduates receive priority consideration for placement in the Quantec Power field vendor network — direct access to active AI data center and critical infrastructure projects nationwide.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">Learn What the Market Pays For</div>
+      <div class="why-body">Medium voltage, data center systems, and critical infrastructure specialists earn $80–$150/hour on active buildouts. The Academy teaches exactly those skills — nothing that doesn't move the needle on your rate.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <div class="why-title">Flexible Format</div>
+      <div class="why-body">Designed for working electricians who can't pause their career. Modular curriculum, weekend-friendly schedule, and online components for theory — with in-person hands-on labs for critical systems work.</div>
+    </div>
+  </div>
+</div>
+
+<!-- WAITLIST -->
+<div class="waitlist-section" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="waitlist-title">Get Early Access</div>
+    <div class="waitlist-body">The Academy is in development. Join the waitlist and you'll be first to know when enrollment opens — with priority placement and founding member pricing.</div>
+    <div class="waitlist-form">
+      <input type="email" class="wl-input" id="wl-email" placeholder="your@email.com" autocomplete="email"/>
+      <button class="wl-btn" onclick="joinWaitlist()">Join Waitlist →</button>
+    </div>
+    <div class="wl-note">No spam. One email when enrollment opens.</div>
+    <div class="wl-success" id="wl-success">✓ You're on the list. We'll be in touch.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">© 2026 QUANTEC POWER LLC &nbsp;·&nbsp; DELAWARE C-CORP</div>
+  <div class="footer-nav">
+    <a href="/">Platform</a>
+    <a href="/education.html">Academy</a>
+    <a href="/legal.html">Legal</a>
+    <a href="mailto:HQ@quantecpower.io">Contact</a>
+  </div>
+</footer>
+
+<script>
+function joinWaitlist() {
+  const email = document.getElementById('wl-email').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('wl-email').focus();
+    return;
+  }
+  // Fire to Make.com webhook (same as vendor form — add education waitlist handling there)
+  fetch('https://hook.us2.make.com/4hi1cbl5v4dauhl4bqxvchadaj7wvi43', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify({ type: 'academy-waitlist', email }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  document.querySelector('.waitlist-form').style.display = 'none';
+  document.querySelector('.wl-note').style.display = 'none';
+  document.getElementById('wl-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
